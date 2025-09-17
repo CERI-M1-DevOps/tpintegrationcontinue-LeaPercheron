@@ -269,7 +269,7 @@ class ListeSimpleTest {
         assertEquals(2, listeATester.tete.getSuivant().getElement());
     }
     @Test
-     void supprimepremierBis() {
+    void supprimepremierBis() {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.ajout(3);
@@ -304,5 +304,5 @@ class ListeSimpleTest {
     }
     
 
-    
+
 }
