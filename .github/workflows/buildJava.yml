@@ -7,10 +7,12 @@ on:
 
 jobs:
   build:
+    name: build java
     runs-on: ubuntu-latest
     steps:
       - name : Checkout depot
         uses: actions/checkout@v4
+        
       - name: Set up Java 21 with Corretto
         uses: actions/setup-java@v4
         with:
@@ -18,7 +20,8 @@ jobs:
           distribution: 'corretto' 
     
       - name: Package with maven
-        run: mvn –B package
+        run: mvn -B package
+
 
 
 
