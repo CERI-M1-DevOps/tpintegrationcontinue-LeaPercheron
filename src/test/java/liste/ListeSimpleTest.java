@@ -268,14 +268,38 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
         assertEquals(2, listeATester.tete.getSuivant().getElement());
     }
-
-     void supprimePremierBis() {
+    @Test
+     void supprimepremierBis() {
         listeATester.ajout(1);
         listeATester.ajout(2);
         listeATester.ajout(3);
         listeATester.ajout(4);
         listeATester.supprimePremier(10);
-        assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(2))", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(4), Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(4, listeATester.getSize());
+    }
+
+    @Test
+    void supprimePremierElementAuMilieu() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.supprimePremier(2);
+        assertEquals("ListeSimple(Noeud(3), Noeud(1))", listeATester.toString());
         assertEquals(2, listeATester.getSize());
     }
+    @Test
+    void echangerlesDeuxNoeuds() {
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        Noeud r2 = listeATester.tete;
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        Noeud r1 = listeATester.tete;
+        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(1), Noeud(2))", listeATester.toString());
+        listeATester.echanger(r1, r2);
+    }
+    
+
+    
 }
