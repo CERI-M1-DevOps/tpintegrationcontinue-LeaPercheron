@@ -44,14 +44,14 @@ class ListeSimpleTest {
     }
 
     @Test
-    void toStringDonneTousLesNoeuds() {
-        System.out.println(listeATester);
-        listeATester.ajout(1);
-        listeATester.ajout(2);
-        listeATester.ajout(3);
-        System.out.println(listeATester);
-        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
-    }
+        void toStringDonneTousLesNoeuds() {
+            System.out.println(listeATester);
+            listeATester.ajout(1);
+            listeATester.ajout(2);
+            listeATester.ajout(3);
+            System.out.println(listeATester);
+            assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        }
 
     @Test
     void modifiePremier() {
@@ -256,5 +256,15 @@ class ListeSimpleTest {
         listeATester.echanger(r1, r2);
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
+    }
+
+    @Test
+    void modifieElementsbsent() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.modifiePremier(10, 4);
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(2, listeATester.tete.getSuivant().getElement());
     }
 }
