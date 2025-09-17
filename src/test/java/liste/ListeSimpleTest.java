@@ -243,6 +243,7 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
     }
 
+
     @Test
     void echangerLePremierEnSecondArgumentNoeudAvecUnAutre() {
         listeATester.ajout(5);
@@ -266,5 +267,15 @@ class ListeSimpleTest {
         listeATester.modifiePremier(10, 4);
         assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
         assertEquals(2, listeATester.tete.getSuivant().getElement());
+    }
+
+     void supprimePremierBis() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+        listeATester.ajout(4);
+        listeATester.supprimePremier(10);
+        assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(2))", listeATester.toString());
+        assertEquals(2, listeATester.getSize());
     }
 }
