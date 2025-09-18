@@ -1,0 +1,33 @@
+name: "Pull-request javadoc on merge"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  javadoc:
+    name: "build Javadoc"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name : "Checkout depot"
+        uses: actions/checkout@v4
+
+      - name: "Set up Java 21 with Corretto"
+        uses: actions/setup-java@v4
+        with:
+          distribution: corretto
+          java-version: '21'
+
+      - name: "Build Javadoc"
+        run: mvn -B javadoc:javadoc
+
+      - name: "Build Javadoc"
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site/apidocs
+    
+        
+
