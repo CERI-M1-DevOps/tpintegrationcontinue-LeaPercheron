@@ -4,12 +4,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write    
+   
 jobs:
   javadoc:
     name: "build Javadoc"
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name : "Checkout depot"
         uses: actions/checkout@v4
@@ -27,7 +28,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/report/apidocs
+          publish_dir: ./target/reports/apidocs
     
         
 
